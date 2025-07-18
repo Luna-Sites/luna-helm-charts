@@ -1,0 +1,20 @@
+apiVersion: v2
+name: lunasites-postgres
+description: LunaSites PostgreSQL Database - Optimized for Plone CMS
+type: application
+version: 1.0.0
+appVersion: "13"
+home: https://github.com/LunaSitesTech/lunasites
+sources:
+  - https://github.com/LunaSitesTech/lunasites-postgres
+maintainers:
+  - name: LunaSites Team
+    email: team@lunasites.com
+keywords:
+  - postgresql
+  - database
+  - plone
+  - cms
+  - lunasites
+annotations:
+  category: Database

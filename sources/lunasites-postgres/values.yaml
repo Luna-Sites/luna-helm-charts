@@ -1,0 +1,124 @@
+# LunaSites PostgreSQL Configuration
+image:
+  repository: postgres
+  pullPolicy: IfNotPresent
+  tag: "13-alpine"
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Service Account
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+# Pod Configuration
+podAnnotations: {}
+podLabels: {}
+podSecurityContext:
+  fsGroup: 999
+
+securityContext:
+  runAsUser: 999
+  runAsGroup: 999
+  runAsNonRoot: true
+
+# Service Configuration
+service:
+  type: ClusterIP
+  port: 5432
+  targetPort: 5432
+
+# Database Configuration
+auth:
+  postgresPassword: "postgres123"
+  database: "plone"
+  username: "plone"
+  password: "plone123"
+
+# PostgreSQL Configuration
+postgresql:
+  configuration: |
+    # Connection Settings
+    max_connections = 200
+    shared_buffers = 256MB
+    effective_cache_size = 1GB
+    maintenance_work_mem = 64MB
+    checkpoint_completion_target = 0.9
+    wal_buffers = 16MB
+    default_statistics_target = 100
+    random_page_cost = 1.1
+    effective_io_concurrency = 200
+    work_mem = 4MB
+    min_wal_size = 1GB
+    max_wal_size = 4GB
+    
+    # Logging
+    log_statement = 'all'
+    log_duration = on
+    log_line_prefix = '%t [%p]: [%l-1] user=%u,db=%d,app=%a,client=%h '
+    
+    # Locale
+    lc_messages = 'en_US.utf8'
+    lc_monetary = 'en_US.utf8'
+    lc_numeric = 'en_US.utf8'
+    lc_time = 'en_US.utf8'
+
+# Storage Configuration
+persistence:
+  enabled: true
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  size: 20Gi
+  mountPath: /var/lib/postgresql/data
+
+# Backup Configuration
+backup:
+  enabled: false
+  schedule: "0 2 * * *"
+  retention: "7d"
+  storageClass: ""
+  size: 50Gi
+
+# Resource Configuration
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1000m"
+
+# Health Checks
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 6
+  successThreshold: 1
+
+# Metrics
+metrics:
+  enabled: false
+  image:
+    repository: wrouesnel/postgres_exporter
+    tag: v0.10.1
+    pullPolicy: IfNotPresent
+
+# Node Selection
+nodeSelector: {}
+tolerations: []
+affinity: {}

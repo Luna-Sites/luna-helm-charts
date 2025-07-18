@@ -1,0 +1,21 @@
+apiVersion: v2
+name: lunasites-backend
+description: LunaSites Plone Backend - Content Management System
+type: application
+version: 1.0.0
+appVersion: "latest"
+home: https://github.com/LunaSitesTech/lunasites
+sources:
+  - https://github.com/LunaSitesTech/lunasites-backend
+maintainers:
+  - name: LunaSites Team
+    email: team@lunasites.com
+keywords:
+  - plone
+  - cms
+  - content-management
+  - python
+  - zope
+  - lunasites
+annotations:
+  category: CMS

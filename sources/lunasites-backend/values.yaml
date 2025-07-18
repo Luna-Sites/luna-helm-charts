@@ -1,0 +1,110 @@
+# LunaSites Backend Configuration
+replicaCount: 1
+
+image:
+  repository: ghcr.io/luna-sites/lunasites-backend
+  pullPolicy: Always
+  tag: "latest"
+
+imagePullSecrets:
+  - name: ghcr-secret
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Service Account
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+# Pod Configuration
+podAnnotations: {}
+podLabels: {}
+podSecurityContext: {}
+securityContext: {}
+
+# Service Configuration
+service:
+  type: ClusterIP
+  port: 8080
+  targetPort: 8080
+
+# Ingress Configuration
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: lunasites.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
+
+# Resource Configuration
+resources:
+  requests:
+    memory: "1Gi"
+    cpu: "500m"
+  limits:
+    memory: "2Gi"
+    cpu: "1000m"
+
+# Health Checks
+livenessProbe:
+  httpGet:
+    path: /
+    port: 8080
+  initialDelaySeconds: 60
+  periodSeconds: 30
+  timeoutSeconds: 10
+  failureThreshold: 3
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 8080
+  initialDelaySeconds: 30
+  periodSeconds: 10
+  timeoutSeconds: 5
+  failureThreshold: 3
+
+# Autoscaling
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80
+
+# Storage
+persistence:
+  enabled: true
+  storageClass: ""
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+# Environment Variables
+env:
+  - name: SITE_ID
+    value: "lunasites"
+  - name: DEFAULT_LANGUAGE
+    value: "en"
+  - name: CORS_ALLOW_ORIGIN
+    value: "*"
+  - name: TZ
+    value: "Europe/Bucharest"
+
+# Database Configuration
+database:
+  host: "postgres-service"
+  port: 5432
+  name: "plone"
+  user: "plone"
+  passwordSecret: "postgres-secret"
+  passwordKey: "password"
+
+# Node Selection
+nodeSelector: {}
+tolerations: []
+affinity: {}
