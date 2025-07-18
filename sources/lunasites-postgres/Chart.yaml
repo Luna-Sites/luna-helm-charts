@@ -1,9 +1,9 @@
 apiVersion: v2
 name: lunasites-postgres
-description: LunaSites PostgreSQL Database - Optimized for Plone CMS
+description: "LunaSites PostgreSQL with DB init support for Plone"
 type: application
 version: 1.0.0
-appVersion: "13"
+appVersion: "10.23-4.2"
 home: https://github.com/LunaSitesTech/lunasites
 sources:
   - https://github.com/LunaSitesTech/lunasites-postgres
