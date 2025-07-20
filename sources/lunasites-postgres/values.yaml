@@ -68,8 +68,8 @@ postgres:
 
 
 datastorage:
-  size: 10G
-  storageClassName: ""
+  size: 10Gi
+  storageClassName: "storage"
 
 archivestorage:
   enabled: false

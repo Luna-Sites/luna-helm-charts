@@ -57,9 +57,9 @@ entries:
       category: Database
     apiVersion: v2
     appVersion: 10.23-4.2
-    created: "2025-07-20T11:43:39.214637+03:00"
+    created: "2025-07-20T12:02:12.76136+03:00"
     description: LunaSites PostgreSQL with DB init support for Plone
-    digest: a04996d2cd19451dc96c33a4adb9dd4769ad6ef2e22cc84f86426a7fbef503ff
+    digest: be9e30295b6102a328577526a02ca71cc87bd4f13ff0ca2a6e7d1ebd322101ee
     home: https://github.com/LunaSitesTech/lunasites
     keywords:
     - postgresql
@@ -77,4 +77,4 @@ entries:
     urls:
     - lunasites-postgres-1.0.0.tgz
     version: 1.0.0
-generated: "2025-07-20T11:43:39.213694+03:00"
+generated: "2025-07-20T12:02:12.759849+03:00"
