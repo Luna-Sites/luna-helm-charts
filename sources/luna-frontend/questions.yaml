@@ -236,29 +236,17 @@ questions:
     type: "string"
     group: "Varnish configuration"
 
-  - variable: "volto.resources.requests.memory"
-    label: "Volto memory reservation"
-    type: "string"
-    required: true
-    default: "4Gi"
-    group: "Memory"
   - variable: "volto.resources.limits.memory"
-    label: "Volto memory limit"
-    description: ">= memory reservation"
+    label: "Volto memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "4Gi"
-    group: "Memory"
-  - variable: "varnish.resources.requests.memory"
-    label: "Varnish memory reservation"
-    type: "string"
-    required: true
-    default: "2Gi"
+    required: false
+    default: ""
     group: "Memory"
   - variable: "varnish.resources.limits.memory"
-    label: "Varnish memory limit"
-    description: ">= memory reservation"
+    label: "Varnish memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "2Gi"
+    required: false
+    default: ""
     group: "Memory"

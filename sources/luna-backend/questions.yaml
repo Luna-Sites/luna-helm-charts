@@ -258,81 +258,45 @@ questions:
     default: ""
     group: "Varnish configuration"
 
-  - variable: "plone.resources.requests.memory"
-    label: "Plone memory reservation"
-    type: "string"
-    required: true
-    default: "4Gi"
-    group: "Memory"
-
   - variable: "plone.resources.limits.memory"
-    label: "Plone memory limit"
-    description: ">= memory reservation"
+    label: "Plone memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "4Gi"
+    required: false
+    default: ""
     group: "Memory"
-  - variable: "debug.resources.requests.memory"
-    label: "Debug memory reservation"
-    type: "string"
-    required: true
-    default: "4Gi"
-    group: "Memory"
-
   - variable: "debug.resources.limits.memory"
-    label: "Debug memory limit"
-    description: ">= memory reservation"
+    label: "Debug memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "4Gi"
+    required: false
+    default: ""
     group: "Memory"
-
-  - variable: "entrasync.resources.requests.memory"
-    label: "Entrasync cron job memory reservation"
-    type: "string"
-    required: true
-    default: "1Gi"
-    group: "Memory"
-    show_if: "entrasync.enabled=true"
 
   - variable: "entrasync.resources.limits.memory"
-    label: "Entrasync memory limit"
-    description: ">= memory reservation"
+    label: "Entrasync memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "1Gi"
+    required: false
+    default: ""
     group: "Memory"
     show_if: "entrasync.enabled=true"
 
-  - variable: "zodbpack.resources.requests.memory"
-    label: "Zodbpack cron job memory reservation"
-    type: "string"
-    required: true
-    default: "1Gi"
-    group: "Memory"
-    show_if: "zodbpack.enabled=true"
-
   - variable: "zodbpack.resources.limits.memory"
-    label: "Zodbpack cron job memory limit"
-    description: ">= memory reservation"
+    label: "Zodbpack memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "1Gi"
+    required: false
+    default: ""
     group: "Memory"
     show_if: "zodbpack.enabled=true"
 
-  - variable: "varnish.resources.requests.memory"
-    label: "Varnish memory reservation"
-    type: "string"
-    required: true
-    default: "2Gi"
-    group: "Memory"
   - variable: "varnish.resources.limits.memory"
-    label: "Varnish memory limit"
-    description: ">= memory reservation"
+    label: "Varnish memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
     type: "string"
-    required: true
-    default: "2Gi"
+    required: false
+    default: ""
     group: "Memory"
 
   - variable: "postfix.serviceName"

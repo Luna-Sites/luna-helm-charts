@@ -131,30 +131,18 @@
     required: true
     type: "string"
     group: "General"
-  - variable: "postgres.resources.requests.memory"
-    label: "Memory reservation postgres"
-    default: "4Gi"
-    required: true
-    type: "string"
-    group: "General"
   - variable: "postgres.resources.limits.memory"
-    label: "Memory limit postgres"
-    default: "4Gi"
-    required: true
+    label: "Postgres memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
+    default: ""
+    required: false
     type: "string"
     group: "General"
-  - variable: "memcached.resources.requests.memory"
-    label: "Memory reservation memcached"
-    default: "2Gi"
-    required: true
-    type: "string"
-    group: "General"
-    show_if: "memcached.enabled=true"
   - variable: "memcached.resources.limits.memory"
-    label: "Memory limit memcached"
-    description: "Must be bigger than cache size"
-    default: "2Gi"
-    required: true
+    label: "Memcached memory limit (optional)"
+    description: "Maximum memory usage - leave empty for no limit"
+    default: ""
+    required: false
     type: "string"
     group: "General"
     show_if: "memcached.enabled=true"

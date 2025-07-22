@@ -42,11 +42,7 @@ postgres:
         max_connections = 150
     Crons: |-
     ReplicationNetwork: ""
-  resources:
-    requests:
-      memory: 4Gi
-    limits:
-      memory: 4Gi
+  resources: {}
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -84,11 +80,7 @@ backupstorage:
 memcached:
   enabled: true
   securityContext: {}
-  resources:
-    requests:
-      memory: 2048Mi
-    limits:
-      memory: 2048Mi
+  resources: {}
   #needs < = memory request and limit
   cache_size_m: 2048
   slab_page_size: 50m
