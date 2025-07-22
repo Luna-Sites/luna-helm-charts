@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/luna-sites/lunasites-backend
   pullPolicy: Always
-  tag: ""
+  tag: "latest"
 
 imagePullSecrets: []
 
