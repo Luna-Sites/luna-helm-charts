@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: luna-acme-challenge
+  labels:
+    {{- include "appl.labels" . | nindent 4 }}
+    component: acme-challenge
+  annotations:
+    nginx.ingress.kubernetes.io/priority: "100"
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: {{ .Values.plone.hostname }}
+    http:
+      paths:
+      - path: /.well-known/acme-challenge
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ include "appl.fullname" . }}-plone
+            port:
+              number: 8080
