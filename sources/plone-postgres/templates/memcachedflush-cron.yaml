@@ -30,8 +30,10 @@ spec:
             - -c
             - echo 'flush_all' | nc {{ .Release.Name }}-memcached 11211
 
+            {{- if .Values.memcachedflush.resources }}
             resources:
               {{- toYaml .Values.memcachedflush.resources | nindent 14 }}
+            {{- end }}
             securityContext:
               {{- toYaml .Values.memcachedflush.securityContext | nindent 16 }}
 

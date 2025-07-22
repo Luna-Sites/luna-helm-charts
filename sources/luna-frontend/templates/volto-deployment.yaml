@@ -64,8 +64,10 @@ spec:
           {{- toYaml .Values.volto.readinessProbe | nindent 10 }}
         {{- end }}
 
+        {{- if .Values.volto.resources }}
         resources:
           {{- toYaml .Values.volto.resources | nindent 10 }}
+        {{- end }}
 
       {{- with .Values.volto.nodeSelector }}
       nodeSelector:

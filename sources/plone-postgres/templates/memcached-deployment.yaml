@@ -51,8 +51,10 @@ spec:
           {{- toYaml .Values.memcached.startupProbe | nindent 10 }}
         {{- end }}
 
+        {{- if .Values.memcached.resources }}
         resources:
           {{- toYaml .Values.memcached.resources | nindent 10 }}
+        {{- end }}
 
       {{- with .Values.memcached.nodeSelector }}
       nodeSelector:

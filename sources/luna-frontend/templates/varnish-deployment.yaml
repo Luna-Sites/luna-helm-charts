@@ -55,8 +55,10 @@ spec:
           {{- toYaml .Values.varnish.startupProbe | nindent 10 }}
         {{- end }}
 
+        {{- if .Values.varnish.resources }}
         resources:
           {{- toYaml .Values.varnish.resources | nindent 10 }}
+        {{- end }}
 
       {{- with .Values.varnish.nodeSelector }}
       nodeSelector:
