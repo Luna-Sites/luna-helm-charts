@@ -42,7 +42,7 @@ ingressredirects:
     hostname: www.plone.luna-sites.com
 
 links:
-  backend: backend-varnish.luna
+  backend: backend-plone.luna
 
 volto:
   serviceType: NodePort

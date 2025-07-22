@@ -23,9 +23,9 @@ spec:
         pathType: ImplementationSpecific
         backend:
           service:
-            name: {{ .Values.varnish.serviceName }}
+            name: {{ include "appl.fullname" . }}-plone
             port:
-              number: {{ .Values.varnish.port }}
+              number: 8080
   {{- if .Values.ingress.tls }}
   tls:
   - hosts:
