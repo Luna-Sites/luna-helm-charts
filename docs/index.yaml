@@ -1,80 +1,80 @@
 apiVersion: v1
 entries:
   lunasites-backend:
-  - annotations:
-      category: CMS
-    apiVersion: v2
-    appVersion: latest
-    created: "2025-07-18T21:37:05.369399+03:00"
-    description: LunaSites Plone Backend - Content Management System
-    digest: bdf6f8e2fb3de6cc924fa58bea4cafbeebc9cb04e083b7b06f24d1e62772cf75
-    home: https://github.com/LunaSitesTech/lunasites
-    keywords:
-    - plone
-    - cms
-    - content-management
-    - python
-    - zope
-    - lunasites
-    maintainers:
-    - email: team@lunasites.com
-      name: LunaSites Team
-    name: lunasites-backend
-    sources:
-    - https://github.com/LunaSitesTech/lunasites-backend
-    type: application
-    urls:
-    - https://luna-sites.github.io/luna-helm-charts/docs/lunasites-backend-1.0.0.tgz
-    version: 1.0.0
+    - annotations:
+        category: CMS
+      apiVersion: v2
+      appVersion: latest
+      created: "2025-07-18T21:37:05.369399+03:00"
+      description: LunaSites Plone Backend - Content Management System
+      digest: bdf6f8e2fb3de6cc924fa58bea4cafbeebc9cb04e083b7b06f24d1e62772cf75
+      home: https://github.com/LunaSitesTech/lunasites
+      keywords:
+        - plone
+        - cms
+        - content-management
+        - python
+        - zope
+        - lunasites
+      maintainers:
+        - email: team@lunasites.com
+          name: LunaSites Team
+      name: lunasites-backend
+      sources:
+        - https://github.com/LunaSitesTech/lunasites-backend
+      type: application
+      urls:
+        - https://luna-sites.github.io/luna-helm-charts/luna-backend-1.0.0.tgz
+      version: 1.0.0
   lunasites-frontend:
-  - annotations:
-      category: Frontend
-    apiVersion: v2
-    appVersion: latest
-    created: "2025-07-18T21:37:05.370332+03:00"
-    description: LunaSites Volto Frontend - React-based CMS Frontend
-    digest: 356254ca253d8a31ed32bf13c85387828f2b93a45222eaf1a0e44441a50d011c
-    home: https://github.com/LunaSitesTech/lunasites
-    keywords:
-    - volto
-    - react
-    - frontend
-    - cms
-    - javascript
-    - lunasites
-    maintainers:
-    - email: team@lunasites.com
-      name: LunaSites Team
-    name: lunasites-frontend
-    sources:
-    - https://github.com/LunaSitesTech/lunasites-frontend
-    type: application
-    urls:
-    - https://luna-sites.github.io/luna-helm-charts/docs/lunasites-frontend-1.0.0.tgz
-    version: 1.0.0
+    - annotations:
+        category: Frontend
+      apiVersion: v2
+      appVersion: latest
+      created: "2025-07-18T21:37:05.370332+03:00"
+      description: LunaSites Volto Frontend - React-based CMS Frontend
+      digest: 356254ca253d8a31ed32bf13c85387828f2b93a45222eaf1a0e44441a50d011c
+      home: https://github.com/LunaSitesTech/lunasites
+      keywords:
+        - volto
+        - react
+        - frontend
+        - cms
+        - javascript
+        - lunasites
+      maintainers:
+        - email: team@lunasites.com
+          name: LunaSites Team
+      name: lunasites-frontend
+      sources:
+        - https://github.com/LunaSitesTech/lunasites-frontend
+      type: application
+      urls:
+        - https://luna-sites.github.io/luna-helm-charts/luna-frontend-1.0.0.tgz
+      version: 1.0.0
   lunasites-postgres:
-  - annotations:
-      category: Database
-    apiVersion: v2
-    appVersion: 10.23-4.2
-    created: "2025-07-20T12:02:12.76136+03:00"
-    description: LunaSites PostgreSQL with DB init support for Plone
-    digest: be9e30295b6102a328577526a02ca71cc87bd4f13ff0ca2a6e7d1ebd322101ee
-    home: https://github.com/LunaSitesTech/lunasites
-    keywords:
-    - postgresql
-    - database
-    - plone
-    - cms
-    - lunasites
-    maintainers:
-    - email: team@lunasites.com
-      name: LunaSites Team
-    name: lunasites-postgres
-    sources:
-    - https://github.com/LunaSitesTech/lunasites-postgres
-    type: application
-    urls:
-    - lunasites-postgres-1.0.0.tgz
-    version: 1.0.0
+    - annotations:
+        category: Database
+      apiVersion: v2
+      appVersion: 10.23-4.2
+      created: "2025-07-20T12:02:12.76136+03:00"
+      description: LunaSites PostgreSQL with DB init support for Plone
+      digest: be9e30295b6102a328577526a02ca71cc87bd4f13ff0ca2a6e7d1ebd322101ee
+      home: https://github.com/LunaSitesTech/lunasites
+      keywords:
+        - postgresql
+        - database
+        - plone
+        - cms
+        - lunasites
+      maintainers:
+        - email: team@lunasites.com
+          name: LunaSites Team
+      name: lunasites-postgres
+      sources:
+        - https://github.com/LunaSitesTech/lunasites-postgres
+      type: application
+      urls:
+        - https://luna-sites.github.io/luna-helm-charts/plone-postgres-1.0.1.tgz
+      version: 1.0.0
 generated: "2025-07-20T12:02:12.759849+03:00"
