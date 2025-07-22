@@ -9,7 +9,7 @@ questions:
 
   - variable: "links.backend"
     label: "Backend service"
-    description: "Varnish backend service, format SERVICE.NAMESPACE"
+    description: "Backend service, format SERVICE.NAMESPACE"
     type: "string"
     required: true
     group: "General"
@@ -44,16 +44,6 @@ questions:
     type: "string"
     group: "General"
 
-  - variable: "varnish.serviceType"
-    label: "Expose varnish"
-    description: "Select NodePort to expose"
-    type: "enum"
-    options:
-      - "NodePort"
-      - "ClusterIP"
-    default: "ClusterIP"
-    required: true
-    group: "General"
 
   - variable: "volto.serviceType"
     label: "Expose frontend"
@@ -177,74 +167,9 @@ questions:
     required: true
     group: "Volto configuration"
 
-  - variable: "varnish.port"
-    label: "Varnish backend/exposed port"
-    description: "To simplify, we use the same port as the web application"
-    type: "int"
-    required: true
-    default: "3000"
-    group: "Varnish configuration"
-
-  - variable: "varnish.environment.VARNISH_SIZE"
-    label: "Varnish cache size, less then memory limit"
-    type: "string"
-    default: "2G"
-    group: "Varnish configuration"
-
-  - variable: "varnish.environment.VARNISH_BERESP_TTL"
-    label: "Varnish object TTL (fresh)"
-    description: "https://docs.varnish-software.com/tutorials/object-lifetime/"
-    type: "string"
-    default: "60s"
-    group: "Varnish configuration"
-
-  - variable: "varnish.environment.VARNISH_BERESP_GRACE"
-    label: "Varnish object grace (stale)"
-    description: "https://docs.varnish-software.com/tutorials/object-lifetime/"
-    type: "string"
-    default: "120s"
-    group: "Varnish configuration"
-
-  - variable: "varnish.environment.VARNISH_BERESP_KEEP"
-    label: "Varnish object KEEP (used in conditional requests)"
-    description: "https://docs.varnish-software.com/tutorials/object-lifetime/"
-    type: "string"
-    default: "120s"
-    group: "Varnish configuration"
-  - variable: "varnish.environment.VARNISH_GZIP_ENABLED"
-    label: "Enable gzip on text & js content types"
-    type: "enum"
-    default: "false"
-    required: true
-    options:
-      - "false"
-      - "true"
-    group: "Varnish configuration"
-
-  - variable: "varnish.environment.VARNISH_GZIP_JSON_ENABLED"
-    label: "Enable gzip on json content types"
-    type: "enum"
-    default: "false"
-    required: true
-    options:
-      - "false"
-      - "true"
-    group: "Varnish configuration"
-  - variable: "varnish.environment.AUTOKILL_CRON"
-    label: "Varnish re-create crontab"
-    description: "If empty, will not force a recreation of the container. Uses UTC time, format is linux crontab - for example -  `0 2 * * *` is 02:00 UTC each day"
-    type: "string"
-    group: "Varnish configuration"
 
   - variable: "volto.resources.limits.memory"
     label: "Volto memory limit (optional)"
-    description: "Maximum memory usage - leave empty for no limit"
-    type: "string"
-    required: false
-    default: ""
-    group: "Memory"
-  - variable: "varnish.resources.limits.memory"
-    label: "Varnish memory limit (optional)"
     description: "Maximum memory usage - leave empty for no limit"
     type: "string"
     required: false

@@ -112,38 +112,3 @@ debug:
   serviceType: NodePort
   tolerations: []
 
-varnish:
-  serviceType: NodePort
-  serviceName: frontend-varnish
-  port: 3000
-  backend: "frontend-volto"
-  resources: {}
-  nodeSelector: {}
-  tolerations: []
-  affinity: {}
-  environment:
-    VARNISH_SIZE: "malloc,128m"
-    VARNISH_DNS_TTL: "20s"
-    VARNISH_BERESP_TTL: "60s"
-    VARNISH_BERESP_GRACE: "120s"
-    VARNISH_BERESP_KEEP: "120s"
-    VARNISH_GZIP_ENABLED: "false"
-    AUTOKILL_CRON: ""
-  livenessProbe:
-    httpGet:
-      path: /ok
-      port: http
-    periodSeconds: 10
-    timeoutSeconds: 10
-    initialDelaySeconds: 30
-    failureThreshold: 5
-    successThreshold: 1
-  startupProbe:
-    httpGet:
-      path: /ok
-      port: http
-    periodSeconds: 5
-    timeoutSeconds: 10
-    initialDelaySeconds: 10
-    failureThreshold: 12
-    successThreshold: 1
