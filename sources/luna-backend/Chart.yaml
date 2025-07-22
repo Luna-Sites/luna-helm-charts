@@ -1,0 +1,15 @@
+apiVersion: v2
+name: luna-backend
+type: application
+version: 1.52.0
+appVersion: "1.0.0"
+description: luna backend
+icon: https://raw.githubusercontent.com/eea/helm-charts/main/sources/luna-backend/luna.png
+home: https://github.com/eea/luna-backend
+keywords:
+  - CMS
+# Remember to do helm dep up
+dependencies:
+  - name: postfix
+    version: 3.0.6
+    repository: https://eea.github.io/helm-charts

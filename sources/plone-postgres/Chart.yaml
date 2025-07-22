@@ -1,12 +1,12 @@
 apiVersion: v2
 name: plone-postgres
-description: "EEA PostgreSQL with DB init support for plone"
+description: "PostgreSQL with DB init support for plone"
 icon: https://raw.githubusercontent.com/eea/helm-charts/main/sources/plone-postgres/postgres.svg
 
 type: application
 
 keywords:
-- PostgreSQL
+  - PostgreSQL
 
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.

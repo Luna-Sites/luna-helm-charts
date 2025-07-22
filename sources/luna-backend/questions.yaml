@@ -2,14 +2,14 @@ questions:
   - variable: "plone.hostname"
     label: "Server name"
     description: "DNS name for this deployment"
-    default: "demo.eea.europa.eu"
+    default: "demo.luna-sites.com"
     type: "string"
     required: true
     group: "General"
 
   - variable: "plone.site"
     label: "Site name"
-    default: "ied"
+    default: "luna"
     type: "string"
     required: true
     group: "General"
@@ -31,7 +31,7 @@ questions:
   - variable: "ingress.certificate"
     label: "Certificate name"
     description: "Use a new name for letsencrypt certificates, for existing certificate write the correct name for the domain, leave blank for kube default"
-    default: "demo.europa.eu-tls"
+    default: "demo.luna-sites-tls"
     type: "string"
     group: "General"
 
@@ -169,7 +169,7 @@ questions:
     default: ""
     group: "Plone configuration"
 
-  - variable: "plone.environment.STATIC_BANNER_ENABLED_ied"
+  - variable: "plone.environment.STATIC_BANNER_ENABLED_luna"
     label: "Enable Volto Banner"
     description: "A customizable banner to highlight to the user that the website is in demo, dev or staging state. Select 'No' for Production"
     type: "enum"
@@ -355,7 +355,7 @@ questions:
         required: true
         description: "Postfix SMTP relay"
         type: "string"
-        default: "ironports.eea.europa.eu"
+        default: "ironports.luna-sites.com"
       - variable: "postfix.mtpPort"
         label: "Postfix relay port"
         description: "Postfix SMTP relay port"
@@ -407,11 +407,11 @@ questions:
     show_if: "postfix.mailtrap.ingress.enabled"
     required: true
     type: "string"
-    default: "mailtrap.01dev.eea.europa.eu"
+    default: "mailtrap.luna-sites.com"
     group: "Mail"
   - variable: "postfix.mailtrap.ingress.certificate"
     label: "Mailtrap certificate name"
     show_if: "postfix.mailtrap.ingress.enabled"
     description: "If empty, https will not be enabled"
-    default: "mailtrap.01dev.eea.europa.eu-tls"
+    default: "mailtrap.luna-sites.com-tls"
     group: "Mail"

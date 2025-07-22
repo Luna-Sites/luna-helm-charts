@@ -1,5 +1,5 @@
 image:
-  repository: eeacms/ied-backend
+  repository: ghcr.io/luna-sites/lunasites-backend
   pullPolicy: Always
   tag: ""
 
@@ -21,14 +21,14 @@ links:
 
 ingress:
   annotations:
-    cert-manager.io/cluster-issuer: 01dev-eea-letsencrypt
-  certificate: key-01dev-letsencrypt
+    cert-manager.io/cluster-issuer: luna-sites-letsencrypt
+  certificate: key-luna-sites-letsencrypt
   tls: true
 
 plone:
   serviceType: ClusterIP
-  hostname: plone.eea.europa.eu
-  site: ied
+  hostname: plone.luna-sites.com
+  site: luna
   googleUrl: google85dc6cec8f1329e5.html
   autoscaling:
     enabled: false
@@ -47,13 +47,13 @@ plone:
     POSTGRES_USER: databaseuser
     POSTGRES_PASSWORD: databasepassword
   environment:
-    GRAYLOG: "logcentral.eea.europa.eu:12201"
+    GRAYLOG: "logcentral.luna-sites.com:12201"
     SENTRY_DSN: ""
     SENTRY_ENVIRONMENT: "01dev"
     CORS_ALLOW_ORIGIN: ""
     DEFAULT_PUBLISHER: ""
     DEFAULT_ORGANISATIONS: ""
-    STATIC_BANNER_ENABLED_ied: ""
+    STATIC_BANNER_ENABLED_luna: ""
     DYNAMIC_BANNER_ENABLED: ""
   annotations: {}
   livenessProbe:
@@ -178,7 +178,7 @@ zodbpack:
 postfix:
   fullnameOverride: ""
   dryrun: false
-  serverName: plone.eea.europa.eu
+  serverName: plone.luna-sites.com
   mtpPass: ""
   mtpPort: ""
   mtpRelay: ""
@@ -189,7 +189,7 @@ postfix:
     serviceType: NodePort
     ingress:
       enabled: false
-      hostname: mailtrap.01dev.eea.europa.eu
+      hostname: mailtrap.luna-sites.com
       annotations:
-        cert-manager.io/cluster-issuer: 01dev-eea-letsencrypt
-      certificate: mailtrap.01dev.eea.europa.eu-tls
+        cert-manager.io/cluster-issuer: luna-sites-letsencrypt
+      certificate: mailtrap.luna-sites.com-tls

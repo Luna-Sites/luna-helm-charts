@@ -6,10 +6,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ied-redirect-{{ $index }}
+  name: luna-redirect-{{ $index }}
   labels:
     {{- $labels | nindent 4 }}
-    component: ied-frontend
+    component: luna-frontend
   annotations:
     nginx.ingress.kubernetes.io/permanent-redirect: https://{{ $hostname }}
   {{- with $redirect.annotations }}

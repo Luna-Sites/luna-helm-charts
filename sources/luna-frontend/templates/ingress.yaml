@@ -1,28 +1,23 @@
-{{- if .Values.plone.googleUrl }}
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ied-google-admin
+  name: luna
   labels:
     {{- include "appl.labels" . | nindent 4 }}
-    component: ied-google-admin
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /VirtualHostBase/https/{{ .Values.plone.hostname }}:443/{{ .Values.plone.site }}/VirtualHostRoot/_vh_admin/{{ .Values.plone.googleUrl }}$1
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    component: luna-frontend
   {{- with .Values.ingress.annotations }}
+  annotations:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 
 spec:
   ingressClassName: nginx
   rules:
-  - host: {{ .Values.plone.hostname }}
+  - host: {{ .Values.volto.hostname }}
     http:
       paths:
-      - path: /{{ .Values.plone.googleUrl }}(.*)
-        pathType: ImplementationSpecific
+      - path: /
+        pathType: Prefix
         backend:
           service:
             name: {{ .Values.varnish.serviceName }}
@@ -31,9 +26,8 @@ spec:
   {{- if .Values.ingress.tls }}
   tls:
   - hosts:
-    - {{ .Values.plone.hostname }}
+    - {{ .Values.volto.hostname }}
     {{- if .Values.ingress.certificate }}
     secretName: {{ .Values.ingress.certificate }}
     {{- end  }}
   {{- end  }}
-{{- end }}

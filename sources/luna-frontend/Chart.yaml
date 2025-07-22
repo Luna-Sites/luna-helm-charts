@@ -1,0 +1,8 @@
+apiVersion: v2
+name: luna-frontend
+type: application
+version: 1.24.0
+appVersion: "1.0.0"
+description: luna frontend
+keywords:
+  - CMS
