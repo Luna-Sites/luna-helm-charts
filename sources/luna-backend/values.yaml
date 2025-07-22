@@ -37,11 +37,7 @@ plone:
     # targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 60
   replicaCount: 1
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      memory: 2Gi
+  resources: {}
   database:
     POSTGRES_DB: database
     POSTGRES_USER: databaseuser
@@ -89,16 +85,12 @@ varnish:
   serviceName: backend-varnish
   backend: "backend-plone"
   port: 8080
-  resources:
-    limits:
-      memory: 2Gi
-    requests:
-      memory: 2Gi
+  resources: {}
   nodeSelector: {}
   tolerations: []
   affinity: {}
   environment:
-    VARNISH_SIZE: 2G
+    VARNISH_SIZE: malloc,128m
     VARNISH_DNS_TTL: "20s"
     VARNISH_BERESP_TTL: "60s"
     VARNISH_BERESP_GRACE: "120s"
@@ -128,11 +120,7 @@ varnish:
 debug:
   serviceType: ClusterIP
   enabled: false
-  resources:
-    limits:
-      memory: 4Gi
-    requests:
-      memory: 4Gi
+  resources: {}
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -146,11 +134,7 @@ entrasync:
   schedule: "0 0 3 * *"
   keepSuccessfulPods: 3
   keepFailedPods: 5
-  resources:
-    limits:
-      memory: 1Gi
-    requests:
-      memory: 1Gi
+  resources: {}
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -163,11 +147,7 @@ zodbpack:
   schedule: "0 0 3 * *"
   keepSuccessfulPods: 3
   keepFailedPods: 5
-  resources:
-    limits:
-      memory: 1Gi
-    requests:
-      memory: 1Gi
+  resources: {}
   nodeSelector: {}
   tolerations: []
   affinity: {}
