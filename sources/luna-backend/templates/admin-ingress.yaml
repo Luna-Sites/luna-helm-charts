@@ -26,12 +26,4 @@ spec:
             name: {{ include "appl.fullname" . }}-plone
             port:
               number: 8080
-  {{- if .Values.ingress.tls }}
-  tls:
-  - hosts:
-    - {{ .Values.plone.hostname }}
-    {{- if .Values.ingress.certificate }}
-    secretName: {{ .Values.ingress.certificate }}
-    {{- end  }}
-  {{- end  }}
    

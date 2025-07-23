@@ -23,11 +23,3 @@ spec:
             name: {{ .Values.varnish.serviceName }}
             port:
               number: {{ .Values.varnish.port }}
-  {{- if .Values.ingress.tls }}
-  tls:
-  - hosts:
-    - {{ .Values.volto.hostname }}
-    {{- if .Values.ingress.certificate }}
-    secretName: {{ .Values.ingress.certificate }}
-    {{- end  }}
-  {{- end  }}
