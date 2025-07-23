@@ -6,7 +6,7 @@ metadata:
     {{- include "appl.labels" . | nindent 4 }}
     component: luna-admin
   annotations:
-    cert-manager.io/cluster-issuer: "luna-sites-letsencrypt"
+    traefik.ingress.kubernetes.io/router.tls.certresolver: "letsencrypt"
     nginx.ingress.kubernetes.io/rewrite-target: /VirtualHostBase/https/{{ .Values.plone.hostname }}:443/{{ .Values.plone.site }}/VirtualHostRoot/_vh_admin/$1
     nginx.ingress.kubernetes.io/use-regex: "true"
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
@@ -15,7 +15,7 @@ metadata:
   {{- end }}
 
 spec:
-  ingressClassName: nginx
+  ingressClassName: traefik
   rules:
   - host: {{ .Values.plone.hostname }}
     http:
