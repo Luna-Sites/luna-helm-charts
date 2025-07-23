@@ -6,6 +6,7 @@ metadata:
     {{- include "appl.labels" . | nindent 4 }}
     component: luna-api
   annotations:
+    cert-manager.io/cluster-issuer: "luna-sites-letsencrypt"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       rewrite ^/(\+\+api\+\+)(.*)$ /VirtualHostBase/https/{{ .Values.plone.hostname }}:443/{{ .Values.plone.site }}/$1/VirtualHostRoot$2 break;
     nginx.ingress.kubernetes.io/use-regex: "true"
@@ -27,3 +28,7 @@ spec:
             name: {{ include "appl.fullname" . }}-plone
             port:
               number: 8080
+  tls:
+  - hosts:
+    - {{ .Values.plone.hostname }}
+    secretName: {{ .Values.plone.hostname | replace "." "-" }}-tls
