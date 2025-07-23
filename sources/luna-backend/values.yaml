@@ -29,7 +29,7 @@ plone:
   serviceType: ClusterIP
   hostname: plone.luna-sites.com
   site: luna
-  googleUrl: google85dc6cec8f1329e5.html
+  googleUrl: g
   autoscaling:
     enabled: false
     minReplicas: 1
@@ -79,7 +79,6 @@ plone:
     initialDelaySeconds: 60
     failureThreshold: 4
     successThreshold: 2
-
 
 debug:
   serviceType: ClusterIP

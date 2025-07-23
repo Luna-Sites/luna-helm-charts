@@ -7,9 +7,9 @@ metadata:
     component: luna-admin
   annotations:
     traefik.ingress.kubernetes.io/router.tls.certresolver: "letsencrypt"
-    nginx.ingress.kubernetes.io/rewrite-target: /VirtualHostBase/https/{{ .Values.plone.hostname }}:443/{{ .Values.plone.site }}/VirtualHostRoot/_vh_admin/$1
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    traefik.ingress.kubernetes.io/router.middlewares: "kube-system-ssl-redirect@kubernetescrd"
+    traefik.ingress.kubernetes.io/router.rule: "Host(`{{ .Values.plone.hostname }}`) && PathPrefix(`/admin`)"
+    traefik.ingress.kubernetes.io/service.loadbalancer.server.port: "8080"
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}

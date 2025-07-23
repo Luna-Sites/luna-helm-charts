@@ -42,7 +42,13 @@ postgres:
         max_connections = 150
     Crons: |-
     ReplicationNetwork: ""
-  resources: {}
+  resources:
+    limits:
+      memory: "2Gi"
+      cpu: "1000m"
+    requests:
+      memory: "512Mi"
+      cpu: "250m"
   nodeSelector: {}
   tolerations: []
   affinity: {}
@@ -64,26 +70,32 @@ postgres:
 
 
 datastorage:
-  size: 10G
-  storageClassName:
+  size: 10Gi
+  storageClassName: local-storage
 
 archivestorage:
   enabled: false
   storageClassName:
-  size: 10G
+  size: 10Gi
 
 backupstorage:
   enabled: false
   storageClassName:
-  size: 10G
+  size: 10Gi
 
 memcached:
   enabled: true
   securityContext: {}
-  resources: {}
+  resources:
+    limits:
+      memory: "3Gi"
+      cpu: "500m"
+    requests:
+      memory: "2Gi"
+      cpu: "100m"
   #needs < = memory request and limit
   cache_size_m: 2048
-  slab_page_size: 50m
+  slab_page_size: 50Mi
   nodeSelector: {}
   tolerations: []
   affinity: {}
