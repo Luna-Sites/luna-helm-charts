@@ -71,7 +71,7 @@ postgres:
 
 datastorage:
   size: 10Gi
-  storageClassName: local-storage
+  storageClassName:
 
 archivestorage:
   enabled: false
@@ -95,7 +95,7 @@ memcached:
       cpu: "100m"
   #needs < = memory request and limit
   cache_size_m: 2048
-  slab_page_size: 50Mi
+  slab_page_size: 1m
   nodeSelector: {}
   tolerations: []
   affinity: {}

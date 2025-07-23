@@ -120,7 +120,10 @@ zodbpack:
 
 postfix:
   fullnameOverride: ""
-  dryrun: false
+  dryrun: falseafa Pending
+postgres-postgres-ss-0	eeacms/postgres:16.4-1.1
+0/1	0	<none>		6 secs	
+0/1 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/1 nodes are available: 1 Preemption is not helpful for scheduling.
   serverName: plone.luna-sites.com
   mtpPass: ""
   mtpPort: ""
