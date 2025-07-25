@@ -16,8 +16,8 @@ serviceAccount:
 timezone: Europe/Copenhagen
 
 links:
-  database: postgres-postgres.user-6xwms
-  memcached: postgress-memcached.user-6xwms
+  database: plone-postgres-postgres.luna-system
+  memcached: plone-postgres-memcached.luna-system
 
 ingress:
   annotations:

@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: rancher-ingress
+  namespace: cattle-system
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`rancher.luna-sites.com`)
+      kind: Rule
+      services:
+        - name: rancher
+          port: 80
+  tls:
+    certResolver: letsencrypt-prod
