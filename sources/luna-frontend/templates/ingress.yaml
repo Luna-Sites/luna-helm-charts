@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ .Values.varnish.serviceName }}
+            name: {{ include "appl.fullname" . }}-volto
             port:
-              number: {{ .Values.varnish.port }}
+              number: 80
