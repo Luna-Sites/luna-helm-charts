@@ -16,8 +16,8 @@ serviceAccount:
 timezone: Europe/Copenhagen
 
 links:
-  database: postgress-postgres.database
-  memcached: postgress-memcached.database
+  database: postgres-postgres.user-6xwms
+  memcached: postgress-memcached.user-6xwms
 
 ingress:
   annotations:
@@ -37,11 +37,11 @@ plone:
     # targetCPUUtilizationPercentage: 80
     targetMemoryUtilizationPercentage: 60
   replicaCount: 1
-  resources: {}
+  resources:
   database:
-    POSTGRES_DB: database
-    POSTGRES_USER: databaseuser
-    POSTGRES_PASSWORD: databasepassword
+    POSTGRES_DB: plone
+    POSTGRES_USER: plone
+    POSTGRES_PASSWORD: plone
   environment:
     GRAYLOG: "logcentral.luna-sites.com:12201"
     SENTRY_DSN: ""
