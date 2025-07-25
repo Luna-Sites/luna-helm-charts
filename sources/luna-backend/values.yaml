@@ -21,7 +21,7 @@ links:
 
 ingress:
   annotations:
-    cert-manager.io/cluster-issuer: luna-sites-letsencrypt
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   certificate: key-luna-sites-letsencrypt
   tls: true
 
@@ -134,5 +134,5 @@ postfix:
       enabled: false
       hostname: mailtrap.luna-sites.com
       annotations:
-        cert-manager.io/cluster-issuer: luna-sites-letsencrypt
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       certificate: mailtrap.luna-sites.com-tls
