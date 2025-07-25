@@ -20,6 +20,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ include "appl.fullname" . }}-volto
+            name: frontend-volto
             port:
               number: 80
