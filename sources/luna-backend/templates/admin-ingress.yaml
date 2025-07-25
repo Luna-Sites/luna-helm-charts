@@ -6,14 +6,12 @@ metadata:
     {{- include "appl.labels" . | nindent 4 }}
     component: luna-admin
   annotations:
-    traefik.ingress.kubernetes.io/router.tls.certresolver: "letsencrypt"
-    traefik.ingress.kubernetes.io/router.middlewares: "kube-system-ssl-redirect@kubernetescrd"
   {{- with .Values.ingress.annotations }}
     {{- toYaml . | nindent 4 }}
   {{- end }}
 
 spec:
-  ingressClassName: traefik
+  ingressClassName: nginx
   rules:
   - host: {{ .Values.plone.hostname }}
     http:
@@ -25,7 +23,11 @@ spec:
             name: {{ include "appl.fullname" . }}-plone
             port:
               number: 8080
+  {{- if .Values.ingress.tls }}
   tls:
   - hosts:
     - {{ .Values.plone.hostname }}
-    secretName: {{ .Values.plone.hostname | replace "." "-" }}-tls
+    {{- if .Values.ingress.certificate }}
+    secretName: {{ .Values.ingress.certificate }}
+    {{- end  }}
+  {{- end  }}

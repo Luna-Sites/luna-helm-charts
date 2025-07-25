@@ -20,7 +20,11 @@ links:
   memcached: postgress-memcached.user-6xwms
 
 ingress:
-  annotations: {}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '480'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '120'
   certificate: key-luna-sites-letsencrypt
   tls: true
 
