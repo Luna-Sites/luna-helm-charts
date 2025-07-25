@@ -20,8 +20,7 @@ links:
   memcached: postgress-memcached.user-6xwms
 
 ingress:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+  annotations: {}
   certificate: key-luna-sites-letsencrypt
   tls: true
 
