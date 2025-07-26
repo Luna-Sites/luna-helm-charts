@@ -57,6 +57,10 @@ spec:
 
         resources:
           {{- toYaml .Values.varnish.resources | nindent 10 }}
+        securityContext:
+          capabilities:
+            add:
+              - IPC_LOCK
 
       {{- with .Values.varnish.nodeSelector }}
       nodeSelector:
