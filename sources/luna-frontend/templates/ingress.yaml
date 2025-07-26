@@ -1,17 +1,15 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: luna
-  labels:
-    {{- include "appl.labels" . | nindent 4 }}
-    component: luna-frontend
-  {{- with .Values.ingress.annotations }}
+  name: luna-frontend
   annotations:
-    {{- toYaml . | nindent 4 }}
-  {{- end }}
-
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - {{ .Values.volto.hostname }}
+    secretName: {{ .Values.volto.hostname }}-tls
   rules:
   - host: {{ .Values.volto.hostname }}
     http:
@@ -23,11 +21,3 @@ spec:
             name: frontend-volto
             port:
               number: 3000
-  {{- if .Values.ingress.tls }}
-  tls:
-  - hosts:
-    - {{ .Values.volto.hostname }}
-    {{- if .Values.ingress.certificate }}
-    secretName: {{ .Values.ingress.certificate }}
-    {{- end  }}
-  {{- end  }}
