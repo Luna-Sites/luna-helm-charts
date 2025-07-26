@@ -22,7 +22,7 @@ spec:
           service:
             name: frontend-volto
             port:
-              name: "3000"
+              number: 3000
   {{- if .Values.ingress.tls }}
   tls:
   - hosts:
