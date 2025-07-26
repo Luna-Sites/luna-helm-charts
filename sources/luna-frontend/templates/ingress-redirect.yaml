@@ -29,6 +29,14 @@ spec:
             name: {{ $varnish.serviceName }}
             port:
               number: {{ $varnish.port }}
+  {{- if $redirect.tls }}
+  tls:
+  - hosts:
+    - {{ $redirect.hostname }}
+    {{- if $redirect.certificate }}
+    secretName: {{ $redirect.certificate }}
+    {{- end  }}
+  {{- end  }}
 ---
 {{- end }}
 {{- end }}

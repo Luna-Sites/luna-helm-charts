@@ -49,10 +49,8 @@ spec:
               value: {{ $value | quote }}
             {{- end }}
             {{- end }}
-            {{- if .Values.zodbpack.resources }}
             resources:
               {{- toYaml .Values.zodbpack.resources | nindent 10 }}
-            {{- end }}
 
             securityContext:
               {{- toYaml .Values.zodbpack.securityContext | nindent 16 }}

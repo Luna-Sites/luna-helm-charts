@@ -68,6 +68,8 @@ spec:
           {{- toYaml .Values.plone.readinessProbe | nindent 10 }}
         {{- end }}
                    
+        resources:
+          {{- toYaml .Values.plone.resources | nindent 10 }}
 
       {{- with .Values.plone.nodeSelector }}
       nodeSelector:

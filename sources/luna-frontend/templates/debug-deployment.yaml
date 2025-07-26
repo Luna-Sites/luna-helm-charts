@@ -60,10 +60,8 @@ spec:
         - mountPath: {{ .Values.debug.addonsPath }}
           name: debug-addons
 
-        {{- if .Values.debug.resources }}
         resources:
           {{- toYaml .Values.debug.resources | nindent 10 }}
-        {{- end }}
 
       {{- with .Values.debug.nodeSelector }}
       nodeSelector:
