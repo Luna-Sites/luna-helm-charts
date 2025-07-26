@@ -1,7 +1,7 @@
 image:
   repository: ghcr.io/luna-sites/lunasites-frontend
   pullPolicy: Always
-  tag: "lateset"
+  tag: "latest"
 
 imagePullSecrets: []
 
