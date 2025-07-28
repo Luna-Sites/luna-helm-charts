@@ -1,6 +1,5 @@
 {{- $labels := ( include "appl.labels" . ) -}}
 {{- $hostname := .Values.volto.hostname -}}
-{{- $varnish := .Values.varnish -}}
 {{- range $index, $redirect := .Values.ingressredirects }}
 {{- if ($redirect.enabled) }}
 apiVersion: networking.k8s.io/v1
@@ -26,9 +25,9 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: {{ $varnish.serviceName }}
+            name: frontend-volto
             port:
-              number: {{ $varnish.port }}
+              number: 3000
   {{- if $redirect.tls }}
   tls:
   - hosts:
