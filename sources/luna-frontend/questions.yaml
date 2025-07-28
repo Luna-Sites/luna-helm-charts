@@ -100,6 +100,13 @@ questions:
     required: false
     type: "string"
     group: "Volto configuration"
+  - variable: "volto.environment.VOLTO_VERSION"
+    label: "VOLTO_VERSION"
+    description: "Volto version"
+    default: "18.22.0"
+    required: false
+    type: "string"
+    group: "Volto configuration"
   - variable: "volto.environment.ALLOWED_CORS_DESTINATIONS"
     label: "ALLOWED_CORS_DESTINATIONS"
     description: "Allowed CORS Proxy destinations, e.g.: staging.luna-sites.com, ims.dev.luna-sites.com"
