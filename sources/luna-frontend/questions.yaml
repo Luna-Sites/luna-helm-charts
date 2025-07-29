@@ -93,6 +93,13 @@ questions:
     required: true
     type: "string"
     group: "Volto configuration"
+  - variable: "volto.environment.RAZZLE_API_PATH"
+    label: "RAZZLE_API_PATH"
+    description: "API path for Plone site"
+    default: "https://luna.luna-sites.com/++api++"
+    required: false
+    type: "string"
+    group: "Volto configuration"
   - variable: "volto.environment.RAZZLE_PUBLIC_URL"
     label: "RAZZLE_PUBLIC_URL"
     description: "Public URL for the frontend application"

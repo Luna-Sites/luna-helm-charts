@@ -73,6 +73,7 @@ volto:
     RAZZLE_MATOMO_SECOND_SITE_ID:
     RAZZLE_MATOMO_SECOND_TRACKER_URL:
     RAZZLE_INTERNAL_API_PATH: "http://backend:8080/Plone"
+    RAZZLE_API_PATH: "https://luna.luna-sites.com/++api++"
     RAZZLE_PUBLIC_URL:
     VOLTO_VERSION: "18.22.0"
     VOLTO_ROBOTSTXT:
